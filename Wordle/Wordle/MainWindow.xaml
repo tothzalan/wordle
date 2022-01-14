@@ -1,0 +1,43 @@
+﻿<Window x:Class="Wordle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wordle"
+        mc:Ignorable="d"
+        Title="Wordle" Icon="Resources/icon.ico"  Height="400" Width="550" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <ToolBarTray Background="White" VerticalAlignment="Top">
+                <ToolBar Band="1" BandIndex="1" ToolTip="Load Space Separated Word File">
+                    <Button Click="LoadFile_Button_Click">
+                        Load File
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+            <Grid x:Name="wordGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48px"></RowDefinition>
+                    <RowDefinition Height="48px"></RowDefinition>
+                    <RowDefinition Height="48px"></RowDefinition>
+                    <RowDefinition Height="48px"></RowDefinition>
+                    <RowDefinition Height="48px"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Label x:Name="solutionLabel" HorizontalAlignment="Center" Visibility="Hidden">_</Label>
+            <TabPanel HorizontalAlignment="Center">
+                <TextBox x:Name="textBox" VerticalAlignment="Bottom" Width="300px" MaxLength="5" Height="20"></TextBox>
+                <Button VerticalAlignment="Bottom" Width="50px" Click="TryWord_Button_Click" Height="20">Try</Button>
+            </TabPanel>
+            <Button Click="NewGame_Button_Click" Width="50px">Restart</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
