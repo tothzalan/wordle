@@ -26,6 +26,7 @@ namespace Wordle
         private List<string> FileContent { get; set; } = new List<string>();
         private int Row { get; set; } = 0;
         private string RandomWord { get; set; } = "";
+        private List<char> WrongLetters { get; set; } = new List<char>();
 
         public MainWindow()
         {
@@ -79,8 +80,16 @@ namespace Wordle
                         {
                             newLabel.Background = Brushes.LightYellow;
                         }
-
-
+                        else
+                        {
+                            if (!WrongLetters.Contains(text[i]))
+                                WrongLetters.Add(text[i]);
+                            string wrongLabelContent = "";
+                            foreach(char letter in WrongLetters) {
+                                wrongLabelContent += $"{letter} ";
+                            }
+                            wrongLabel.Content = wrongLabelContent;
+                        }
 
                         Grid.SetColumn(newLabel, i);
                         Grid.SetRow(newLabel, Row);
@@ -106,6 +115,7 @@ namespace Wordle
             Row = 0;
             wordGrid.Children.Clear();
             solutionLabel.Visibility = Visibility.Hidden;
+            WrongLetters.Clear();
         }
 
         private void ReadInFile(Stream fileStream = null, string fileName = "")

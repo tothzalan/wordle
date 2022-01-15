@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wordle"
         mc:Ignorable="d"
         Title="Wordle" Icon="Resources/icon.ico"  Height="400" Width="550" ResizeMode="NoResize">
-    <Grid>
+    <StackPanel>
         <StackPanel>
             <ToolBarTray Background="White" VerticalAlignment="Top">
                 <ToolBar Band="1" BandIndex="1" ToolTip="Load Space Separated Word File">
@@ -38,6 +38,6 @@
             </TabPanel>
             <Button Click="NewGame_Button_Click" Width="50px">Restart</Button>
         </StackPanel>
-
-    </Grid>
+        <Label x:Name="wrongLabel" HorizontalAlignment="Center" Foreground="Red"></Label>
+    </StackPanel>
 </Window>
